@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User timetable chart data, schedule items, tasks, and preferences",
+      "type": "object",
+      "properties": {
+        "slots": {
+          "type": "array",
+          "description": "List of time slots"
+        },
+        "chart": {
+          "type": "object",
+          "description": "Timetable chart data"
+        },
+        "tasks": {
+          "type": "array",
+          "description": "Task list"
+        },
+        "events": {
+          "type": "array",
+          "description": "Event list"
+        },
+        "habits": {
+          "type": "array",
+          "description": "Habit items"
+        },
+        "workShifts": {
+          "type": "array",
+          "description": "Work shifts"
+        },
+        "notes": {
+          "type": "object",
+          "description": "Subject notes"
+        },
+        "colors": {
+          "type": "object",
+          "description": "Subject color schemes"
+        },
+        "preferences": {
+          "type": "object",
+          "description": "User application preferences"
+        },
+        "userName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Timestamp of the last update"
+        }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user timetable and backup data"
+    }
+  }
+}

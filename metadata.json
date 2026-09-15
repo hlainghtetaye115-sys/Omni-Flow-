@@ -1,0 +1,7 @@
+{
+  "name": "OmniFlow",
+  "description": "OmniFlow - Smart Universal Timetable, Class Schedule & Voice Notification System",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
