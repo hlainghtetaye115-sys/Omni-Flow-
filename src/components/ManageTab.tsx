@@ -406,101 +406,6 @@ export const ManageTab: React.FC<ManageTabProps> = ({
               )}
             </div>
           )}
-
-          {/* Google Calendar Sync Section */}
-          <div className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-2xl p-5 shadow-sm space-y-4">
-            <div className="flex items-center justify-between border-b border-[var(--color-border)] pb-3">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-xl bg-blue-500/10 text-blue-500">
-                  <Calendar className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-base text-[var(--color-text-primary)]">
-                    {isMM ? 'Google Calendar & အချိန်ဇယား ချိတ်ဆက်မှု' : 'Google Calendar & Timetable Sync'}
-                  </h3>
-                  <p className="text-xs text-[var(--color-text-muted)]">
-                    {isMM ? 'အတန်းချိန်ဇယားများကို Google Calendar နှင့် ဖုန်း Alarm ထဲသို့ တိုက်ရိုက် ထည့်သွင်းပါ' : 'Directly upload and sync your class timetable to Google Calendar and phone alarms'}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Clean Unified Card */}
-            <div className="bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-teal-500/10 border border-blue-500/20 rounded-2xl p-4 sm:p-5 space-y-4">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-extrabold text-[var(--color-text-primary)] flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-blue-500" />
-                      <span>{isMM ? 'Google Calendar သို့ ၁ ချက်နှိပ်ရုံဖြင့် တိုက်ရိုက်တင်မည်' : 'Direct 1-Click Google Calendar Sync'}</span>
-                    </span>
-                    <span className="text-[10px] bg-blue-600 text-white font-bold px-2 py-0.5 rounded-full shadow-xs">
-                      1-Click Direct
-                    </span>
-                  </div>
-                  <p className="text-xs text-[var(--color-text-muted)] max-w-lg leading-relaxed">
-                    {isMM 
-                      ? 'အတန်းချိန်အားလုံးကို အပတ်စဉ် ထပ်တလဲလဲဖြစ်သော Weekly Recurring Events အဖြစ် သင့် Google Calendar ထဲသို့ အလိုအလျောက် တိုက်ရိုက် ထည့်သွင်းပေးပါမည်။'
-                      : 'Authenticates and pushes your complete weekly recurring schedule directly into your Google Calendar.'}
-                  </p>
-                  {preferences.syncAccountEmail && (
-                    <div className="flex items-center gap-1.5 text-[11px] text-blue-600 dark:text-blue-400 font-mono font-semibold pt-0.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0 inline-block animate-pulse" />
-                      <span>{isMM ? 'ချိတ်ဆက်ထားသော Account:' : 'Connected:'} {preferences.syncAccountEmail}</span>
-                    </div>
-                  )}
-                </div>
-
-                <div className="flex items-center gap-2 w-full sm:w-auto">
-                  {onOpenCalendarModal && (
-                    <button
-                      onClick={onOpenCalendarModal}
-                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-[#4285F4] hover:bg-[#3367d6] text-white cursor-pointer transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
-                    >
-                      <Calendar className="w-4 h-4" />
-                      <span>{isMM ? 'Google Calendar သို့ တင်မည်' : 'Sync Google Calendar'}</span>
-                    </button>
-                  )}
-                  <a
-                    href="https://calendar.google.com/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2.5 bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:border-blue-500 text-[var(--color-text-primary)] rounded-xl transition-all flex items-center justify-center shadow-xs"
-                    title={isMM ? 'Google Calendar ဖွင့်ကြည့်မည်' : 'Open Google Calendar App'}
-                  >
-                    <ExternalLink className="w-4 h-4 text-blue-500" />
-                  </a>
-                </div>
-              </div>
-
-              {calendarNotice && (
-                <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-xs text-emerald-700 dark:text-emerald-300 flex items-start gap-2 leading-relaxed">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
-                  <span>{calendarNotice}</span>
-                </div>
-              )}
-            </div>
-
-            <div className="flex items-center justify-between py-3 px-4 bg-[var(--color-bg-input)] border border-[var(--color-border)] rounded-2xl">
-              <div className="flex items-center gap-3">
-                <Calendar className="w-4 h-4 text-blue-500" />
-                <div>
-                  <div className="text-sm font-bold text-[var(--color-text-primary)]">
-                    {isMM ? 'အချိန်ဇယား သိမ်းဆည်းချိန်တွင် Google Calendar အလိုအလျောက် သတိပေးရန်' : 'Auto-Sync to Google Calendar on Save'}
-                  </div>
-                  <div className="text-xs text-[var(--color-text-muted)]">
-                    {isMM ? 'အချိန်ဇယား အသစ်ထည့်ပြီး သိမ်းဆည်းတိုင်း Google Calendar အချက်အလက်များကို အလိုအလျောက် Update ပြုလုပ်ပေးမည်' : 'Keep Google Calendar schedules updated when saving time slots'}
-                  </div>
-                </div>
-              </div>
-              <input
-                type="checkbox"
-                checked={preferences.autoGoogleSync || false}
-                onChange={e => onUpdatePreferences({ autoGoogleSync: e.target.checked })}
-                className="w-5 h-5 accent-blue-600 cursor-pointer"
-              />
-            </div>
-          </div>
         </div>
       )}
 
@@ -1521,7 +1426,7 @@ export const ManageTab: React.FC<ManageTabProps> = ({
             </div>
           </div>
 
-          {/* SECTION 4: Google Calendar & Native Phone Alarms */}
+          {/* SECTION 4: Native Phone Alarms */}
           <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent border border-emerald-500/25 space-y-3.5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
@@ -1530,13 +1435,13 @@ export const ManageTab: React.FC<ManageTabProps> = ({
                 </div>
                 <div>
                   <div className="text-sm font-extrabold text-[var(--color-text-primary)] flex items-center gap-2">
-                    <span>{isMM ? 'ဖုန်း Alarm & Google Calendar ချိတ်ဆက်မှု' : 'Native Phone Alarm & Google Calendar'}</span>
+                    <span>{isMM ? 'ဖုန်း Alarm ပြက္ခဒိန်ဖိုင် ထုတ်ယူခြင်း (.ics)' : 'Native Phone Alarm & Calendar Export (.ics)'}</span>
                     <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500 text-white font-bold">
                       RFC-5545 VALARM
                     </span>
                   </div>
                   <div className="text-xs text-[var(--color-text-muted)]">
-                    {isMM ? 'ဖုန်း Screen ပိတ်ထားချိန်နှင့် အင်တာနက်မရှိချိန်တွင်ပါ ဖုန်း Alarm အလိုအလျောက် မြည်ပေးမည့် စနစ်' : 'Rings native device alarms even when offline or screen is locked'}
+                    {isMM ? 'အင်တာနက်မရှိချိန်တွင်ပါ ဖုန်း Alarm အလိုအလျောက် မြည်ပေးမည့် ပြက္ခဒိန်ဖိုင် (.ics) ထုတ်ယူရန်စနစ်' : 'Rings native device alarms even when offline using standard .ics calendar file'}
                   </div>
                 </div>
               </div>

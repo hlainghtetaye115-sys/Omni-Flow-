@@ -1861,6 +1861,7 @@ export default function App() {
           : 'Sign-in failed. Check your email and password, then try again.',
         'danger'
       );
+      throw firebaseErr;
     }
   };
 
@@ -2600,9 +2601,7 @@ export default function App() {
       <LoginModal
         isOpen={isLoginModalOpen}
         onClose={() => setIsLoginModalOpen(false)}
-        onGoogleLoginSuccess={handleGoogleLoginSuccess}
         onGoogleLogin={() => handleGoogleLogin()}
-        onEmailLogin={handleEmailLogin}
         lang={preferences.lang}
       />
 
